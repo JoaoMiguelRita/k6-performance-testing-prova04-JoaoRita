@@ -15,7 +15,10 @@ export const options = {
   },
   stages: [
     { duration: '5s', target: 2 },
-    { duration: '5s', target: 6 }
+    { duration: '10s', target: 300 },
+    { duration: '30s', target: 500 },
+    { duration: '60s', target: 1000 },
+    { duration: '60s', target: 2000 }
   ]
 };
 
@@ -27,7 +30,7 @@ export function handleSummary(data) {
 }
 
 export default function () {
-  const baseUrl = 'https://test.k6.io/';
+  const baseUrl = 'https://hp-api.onrender.com/api/characters';
 
   const params = {
     headers: {
