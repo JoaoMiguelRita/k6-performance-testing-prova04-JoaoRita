@@ -30,7 +30,8 @@ export function handleSummary(data) {
 }
 
 export default function () {
-  const baseUrl = 'https://hp-api.onrender.com/api/characters';
+  const baseUrl = 'https://hogwarts-api.com/api/characters/';
+  // https://pokeapi.co/api/v2/pokemon
 
   const params = {
     headers: {
