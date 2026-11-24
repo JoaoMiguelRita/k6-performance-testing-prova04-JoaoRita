@@ -2,11 +2,9 @@
 
 ## GitHub Actions + SonarCloud
 
-[![K6 Performance Testing](https://github.com/ugioni/k6-performance-testing/actions/workflows/node.js.yml/badge.svg)](https://github.com/ugioni/k6-performance-testing/actions/workflows/node.js.yml)
 
 </br>
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ugioni_playwright-e2e&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ugioni_playwright-e2e)
 
 ## Getting Started
 

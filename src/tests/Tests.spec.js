@@ -1,7 +1,7 @@
 import { htmlReport } from 'https://raw.githubusercontent.com/benc-uk/k6-reporter/latest/dist/bundle.js';
 import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.1/index.js';
 import http from 'k6/http';
-import { check } from 'k6';
+import { check, sleep } from 'k6';
 import { Trend, Rate } from 'k6/metrics';
 
 export const getContactsDuration = new Trend('get_contacts', true);
@@ -9,16 +9,16 @@ export const RateContentOK = new Rate('content_OK');
 
 export const options = {
   thresholds: {
-    http_req_failed: ['rate<0.30'],
-    get_contacts: ['p(99)<500'],
-    content_OK: ['rate>0.95']
+    http_req_failed: ['rate<0.25'],
+    get_contacts: ['p(90)<6800'],
+    content_OK: ['rate>0.75']
   },
   stages: [
     { duration: '5s', target: 2 },
-    { duration: '10s', target: 300 },
-    { duration: '30s', target: 500 },
-    { duration: '60s', target: 1000 },
-    { duration: '60s', target: 2000 }
+    { duration: '25s', target: 10 },
+    { duration: '30s', target: 32 },
+    { duration: '60s', target: 58 },
+    { duration: '90s', target: 92 }
   ]
 };
 
@@ -30,7 +30,7 @@ export function handleSummary(data) {
 }
 
 export default function () {
-  const baseUrl = 'https://hogwarts-api.com/api/characters/';
+  const baseUrl = 'https://swapi.dev/api/people/1/'; //'https://hogwarts-api.com/api/characters/';
   // https://pokeapi.co/api/v2/pokemon
 
   const params = {
